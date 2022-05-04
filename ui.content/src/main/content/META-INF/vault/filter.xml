@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/tag-update-service"/>
+    <filter root="/content/tag-update-service"/>
+    <filter root="/content/dam/tag-update-service"/>
+</workspaceFilter>
