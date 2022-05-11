@@ -1,5 +1,6 @@
 package org.lockheedmartin.services.core.services;
 
+import javax.jcr.RepositoryException;
 public interface TagUpdateService
 {
     /**
@@ -7,5 +8,5 @@ public interface TagUpdateService
      *
      * @return {@link String}
      */
-    String getResponse();
+    String getResponse(boolean testRun) throws RepositoryException;
 }

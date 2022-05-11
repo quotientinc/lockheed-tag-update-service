@@ -40,7 +40,7 @@ public class TagUpdateTestServlet extends SlingSafeMethodsServlet
 
         try {
 
-            String res = tagUpdateService.getResponse();
+            String res = tagUpdateService.getResponse(false);
 
             /**
              * Printing the json response on the browser
