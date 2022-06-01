@@ -16,8 +16,8 @@ import javax.servlet.Servlet;
 @Component(service = Servlet.class, property = {
         Constants.SERVICE_DESCRIPTION + "=HTTP servlet",
         "sling.servlet.methods=" + HttpConstants.METHOD_GET,
-        "sling.servlet.paths=" + "/bin/services/tags-test" })
-public class TagUpdateTestServlet extends SlingSafeMethodsServlet
+        "sling.servlet.paths=" + "/bin/services/tags-post" })
+public class TagUpdatePostServlet extends SlingSafeMethodsServlet
 {
     /**
      * Generated serialVersionUid
@@ -34,14 +34,14 @@ public class TagUpdateTestServlet extends SlingSafeMethodsServlet
 
     /**
      * Overridden doGet() method
+     * NOTE: This is a get that functions like a POST because AEM restricts AJAX Post Requests.
      */
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
 
-        try
-        {
-            String res = tagUpdateService.getResponse(false);
+        try {
 
+            String res = tagUpdateService.getResponse(true);
             response.setContentType("application/json");
 
             /**
@@ -49,9 +49,7 @@ public class TagUpdateTestServlet extends SlingSafeMethodsServlet
              */
             response.getWriter().println(res);
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
             log.error(e.getMessage(), e);
         }
